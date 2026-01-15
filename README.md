@@ -14,8 +14,7 @@ flutter pub get
 flutter run
 ```
 
-## Getting started
+## Web
 ```bash
-Web
 flutter run -d chrome
 ```
