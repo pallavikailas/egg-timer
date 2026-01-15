@@ -7,7 +7,7 @@ ThemeData buildLightTheme() {
   return base.copyWith(
     colorScheme: ColorScheme.fromSeed(seedColor: AppColors.seed),
     textTheme: buildTextTheme(base.textTheme),
-    cardTheme: const CardTheme(
+    cardTheme: const CardThemeData(
       elevation: 1,
       margin: EdgeInsets.zero,
     ),
