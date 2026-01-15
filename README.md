@@ -12,3 +12,10 @@ A cute, scalable Flutter egg timer app (mobile + web), ready for CI and GitHub P
 ```bash
 flutter pub get
 flutter run
+```
+
+## Getting started
+```bash
+Web
+flutter run -d chrome
+```
