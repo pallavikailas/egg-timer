@@ -21,7 +21,7 @@ jobs:
           channel: stable
 
       - run: flutter pub get
-      - run: flutter build web --release --base-href "/egg_timer/"
+      - run: flutter build web --release --base-href "/egg-timer/"
 
       - uses: actions/upload-pages-artifact@v3
         with:
