@@ -18,3 +18,7 @@ flutter run
 ```bash
 flutter run -d chrome
 ```
+## Deployment
+```bash
+https://pallavikailas.github.io/egg-timer/
+```
