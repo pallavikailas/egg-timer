@@ -1,0 +1,45 @@
+name: Enable Flutter Web (one-time)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  enable-web:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Install deps
+        run: flutter pub get
+
+      - name: Generate web platform
+        run: flutter create . --platforms web
+
+      - name: Commit web platform files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Add generated platform folder(s)
+          git add web
+          git add .metadata pubspec.lock || true
+
+          # Only commit if something changed
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Enable Flutter web platform"
+          git push
